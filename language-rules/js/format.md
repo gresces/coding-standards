@@ -135,6 +135,33 @@ statusElement.classList.remove("ok", "error");
 - 不保留临时代码、调试输出和被注释掉的旧实现。
 - 公共函数行为不明显时，在函数上方使用简短 JSDoc；内部简单函数优先靠命名表达意图。
 
+## 结构分隔注释
+
+- 每个类、每个顶层函数、每组连续的类内函数之前必须添加分隔注释行。
+- 分隔注释使用 `----` 加名称，并用 `-` 延伸到整行。
+- 类内函数按职责分组，例如 lifecycle、accessors、events、render、helpers；组名应表达这一组方法的用途。
+- JavaScript 使用 `//` 分隔行：
+
+```js
+// ---- RunController ----------------------------------------------------------
+class RunController {
+  // ---- lifecycle ------------------------------------------------------------
+  constructor(client) {
+    this.client = client;
+  }
+
+  // ---- actions --------------------------------------------------------------
+  startRun(request) {
+    return this.client.startRun(request);
+  }
+}
+
+// ---- createRunController ----------------------------------------------------
+export function createRunController(client) {
+  return new RunController(client);
+}
+```
+
 ## 面向 LLM 的可读性
 
 - 模块职责保持单一，导入列表保持清晰。

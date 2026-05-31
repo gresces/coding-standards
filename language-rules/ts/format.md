@@ -164,6 +164,31 @@ type RunRequest = {
 - 公共类型、公共函数和不明显的约束可使用简短 JSDoc。
 - 不保留临时代码、调试输出和被注释掉的旧实现。
 
+## 结构分隔注释
+
+- 每个类、每个顶层函数、每组连续的类内函数之前必须添加分隔注释行。
+- 分隔注释使用 `----` 加名称，并用 `-` 延伸到整行。
+- 类内函数按职责分组，例如 lifecycle、accessors、events、render、helpers；组名应表达这一组方法的用途。
+- TypeScript / TSX 使用 `//` 分隔行；如果公共 API 还需要 JSDoc，分隔行放在 JSDoc 前面。
+
+```ts
+// ---- RunController ----------------------------------------------------------
+class RunController {
+  // ---- lifecycle ------------------------------------------------------------
+  constructor(private readonly client: RunClient) {}
+
+  // ---- actions --------------------------------------------------------------
+  startRun(request: RunRequest): Promise<RunResult> {
+    return this.client.startRun(request);
+  }
+}
+
+// ---- createRunController ----------------------------------------------------
+export function createRunController(client: RunClient): RunController {
+  return new RunController(client);
+}
+```
+
 ## 面向 LLM 的可读性
 
 - 类型定义靠近使用方或模块边界，避免跨文件追踪简单类型。

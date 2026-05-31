@@ -19,7 +19,7 @@ Use this skill when:
 - Reviewing code for readability, maintainability, naming, formatting, or structure.
 - Refactoring code to reduce complexity or remove code smells.
 - Adding or changing dependencies, formatters, linters, type checkers, or test commands.
-- Writing Python, JavaScript, TypeScript, TSX, or HTML.
+- Writing Python, JavaScript, TypeScript, TSX, HTML, or C++.
 
 ## Scope Boundaries
 
@@ -125,6 +125,12 @@ Do not rewrite broad structure when a local change solves the task. Prefer exten
 - Public APIs, public classes, important business rules, non-obvious constraints, side effects, and error behavior may need concise documentation.
 - Internal helpers with clear names and types do not need boilerplate comments.
 
+### Structural Separator Comments
+
+- Add a separator comment before every class, every top-level function, and every group of consecutive methods inside a class.
+- The separator uses `----` plus the class, function, or method-group name, extended to a full line with `-`.
+- Use the language's normal comment syntax, for example `// ---- SessionManager ---------------------------------------------------------` or `# ---- load_user --------------------------------------------------------------`.
+
 ## Error Handling
 
 - Preserve useful context when raising or rethrowing errors.
@@ -165,6 +171,10 @@ If the file is plain JavaScript, use `language-rules/js/format.md` instead. If a
 When writing or modifying HTML, read and follow `language-rules/html/format.md` before editing. It covers document structure, tag layout, attribute order, class and id naming, forms, templates, scripts, comments, and Prettier defaults.
 
 If HTML work includes JavaScript modules or inline script changes, also read `language-rules/js/format.md` or `language-rules/ts/format.md` according to the language used.
+
+## C++ Standards
+
+When writing or modifying C++, read and follow `language-rules/cpp/format.md` before editing. It covers formatting, include order, naming, pointer and reference style, functions, classes and structs, comments, LLVM-specific conventions, and validation checks.
 
 ## Immutability and State
 
