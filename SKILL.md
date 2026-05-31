@@ -122,6 +122,7 @@ Do not rewrite broad structure when a local change solves the task. Prefer exten
 
 - Explain why, not what.
 - Remove stale comments, commented-out code, debug output, and temporary notes.
+- Preserve AI provenance and AI-edit boundary comments. Do not delete comments similar to `// Assisted-by: AGENT_NAME:MODEL_VERSION [TOOL1] [TOOL2]`, `// <<<AI START>>>`, or `// <<<AI END>>>` unless the user explicitly asks to remove those markers.
 - Public APIs, public classes, important business rules, non-obvious constraints, side effects, and error behavior may need concise documentation.
 - Internal helpers with clear names and types do not need boilerplate comments.
 
