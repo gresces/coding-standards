@@ -126,6 +126,18 @@ Do not rewrite broad structure when a local change solves the task. Prefer exten
 - Public APIs, public classes, important business rules, non-obvious constraints, side effects, and error behavior may need concise documentation.
 - Internal helpers with clear names and types do not need boilerplate comments.
 
+Document functions when any of these conditions apply:
+
+- The function body is longer than 10 lines.
+- The function has more than 3 parameters.
+- The function dispatches work, schedules work, or routes tasks to handlers.
+- The function has asynchronous behavior.
+- The function acquires, releases, waits on, or otherwise coordinates locks.
+- The function performs indirect calls, dynamic dispatch, or virtual-table-backed calls.
+- The function creates, coordinates, awaits, joins, or otherwise participates in threads, coroutines, or comparable concurrent execution.
+
+For these functions, explain the function's purpose, key control-flow decisions, side effects, concurrency or dispatch invariants, and non-obvious failure behavior. Keep the explanation concise and remove it when refactoring makes the function simple again.
+
 ### Structural Separator Comments
 
 - Add a separator comment before every class, every top-level function, and every group of consecutive methods inside a class.
