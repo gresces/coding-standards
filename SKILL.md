@@ -19,7 +19,7 @@ Use this skill when:
 - Reviewing code for readability, maintainability, naming, formatting, or structure.
 - Refactoring code to reduce complexity or remove code smells.
 - Adding or changing dependencies, formatters, linters, type checkers, or test commands.
-- Writing Python, JavaScript, TypeScript, TSX, HTML, or C++.
+- Writing Python, JavaScript, TypeScript, TSX, HTML, C++, or Rust.
 
 ## Scope Boundaries
 
@@ -188,6 +188,15 @@ If HTML work includes JavaScript modules or inline script changes, also read `la
 ## C++ Standards
 
 When writing or modifying C++, read and follow `language-rules/cpp/format.md` before editing. It covers formatting, include order, naming, pointer and reference style, functions, classes and structs, comments, LLVM-specific conventions, and validation checks.
+
+## Rust Standards
+
+When writing or modifying Rust, read and follow these repository standards before editing:
+
+- `language-rules/rust/format.md` for rustfmt defaults, file and module layout, imports, naming, expression layout, comments, separator comments, tests, and formatting checks.
+- `language-rules/rust/logic.md` for project constraints, ownership and parameter design, public API shape, error handling, `unsafe` boundaries, visibility, and validation expectations.
+
+Use both documents for Rust feature work. For a narrow formatting-only change, `language-rules/rust/format.md` is sufficient unless API shape, ownership, errors, tests, `unsafe`, or validation behavior is involved.
 
 ## Immutability and State
 
