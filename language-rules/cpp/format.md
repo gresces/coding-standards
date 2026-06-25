@@ -211,6 +211,7 @@ std::vector<std::string> reachableApis(const std::vector<std::string>& starts) c
 
 - 错误路径应靠近触发条件，并返回带上下文的信息。
 - 不吞掉异常或错误码；如果必须捕获异常，应限制捕获范围并保留原因。
+- MUST：编码时如果需要输出错误处理信息，必须尽可能明确错误原因，并指明错误发生的位置，以便 LLM 快速定位需要修复的代码。
 - 文件描述符、socket、内存和锁应由 RAII 管理；必须使用 C API 时，关闭和清理逻辑要集中且可验证。
 - 加锁范围尽量小，使用 `std::lock_guard` / `std::unique_lock` 表达生命周期。
 - 不在普通业务函数中直接 `std::exit`，除非该函数是进程边界或信号处理路径。

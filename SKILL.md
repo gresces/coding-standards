@@ -150,6 +150,7 @@ For these functions, explain the function's purpose, key control-flow decisions,
 - Do not swallow errors silently unless that is explicit business behavior.
 - Do not catch every error and convert it to a vague generic error.
 - Distinguish common external-system failures such as timeout, authentication failure, rate limiting, missing data, and invalid response shape.
+- MUST: When code emits or handles errors, make the error cause as explicit as possible and identify where the error occurred so an LLM can quickly locate the code to fix.
 - Error messages should help locate the problem without leaking passwords, tokens, cookies, secrets, or personal sensitive data.
 
 ## Dependency Discipline

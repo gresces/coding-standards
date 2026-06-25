@@ -80,6 +80,7 @@ pub fn load_config(path: &Path) -> Config {
 - 二进制入口 main：可以统一处理错误
 - 测试代码：unwrap/expect 可以接受
 - 真正不可能失败的分支：expect("说明为什么不可能")
+- MUST：编码时如果需要输出错误处理信息，必须尽可能明确错误原因，并指明错误发生的位置，以便 LLM 快速定位需要修复的代码。
 
 ## API 设计规范
 
